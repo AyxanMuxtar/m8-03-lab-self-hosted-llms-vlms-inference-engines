@@ -22,7 +22,7 @@ client = OpenAI(
     api_key="ollama",  # required by the client, but ignored by Ollama
 )
 
-MODEL = "llama3.2:3b"  # TODO: change to a model you pulled with `ollama pull`
+MODEL = "gemma4:e4b"  # TODO: change to a model you pulled with `ollama pull`
 
 
 def main() -> None:
@@ -37,6 +37,13 @@ def main() -> None:
 
     # TODO (reflection): in a comment or a print, explain in your own words
     # why this is "the same shape" as yesterday's hosted Gemini call.
+    print("\nReflection:")
+    print("This is 'the same shape' as the hosted Gemini call because we are using")
+    print("the exact same HTTP-based client architecture (the OpenAI SDK). The only")
+    print("difference is that we changed the base URL from a cloud provider's endpoint")
+    print("to our local machine (localhost). The interface, request format, and")
+    print("response structure remain identical, demonstrating that calling an LLM")
+    print("is fundamentally just sending an HTTP request to an inference server.")
 
 
 if __name__ == "__main__":
